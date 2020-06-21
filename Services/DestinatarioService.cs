@@ -32,6 +32,8 @@ namespace ARB.Services
         public async Task<Destinatario> CreateDestinatario(string userId, Destinatario destinatario)
         {
             destinatario.UsuarioId = userId;
+            destinatario.latitude = "NoTiene";
+            destinatario.longitude = "NoTiene";
             await validateUserId(userId);
             var destinatarioEntity = mapper.Map<DestinatarioEntity>(destinatario);
 

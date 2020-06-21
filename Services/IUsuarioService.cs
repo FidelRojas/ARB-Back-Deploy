@@ -15,7 +15,7 @@ namespace ARB.Services
         Task<UserManagerResponse> CreateRolAsync(CreateRoleViewModel model);
         Task<UserManagerResponse> CreateUserRoleAsync(CreateUserRoleViewModel model);
 
-        Task<IEnumerable<Usuario>> GetUsuariosAsync();
+        Task<IEnumerable<UserRespons>> GetUsuariosAsync();
         Task<Usuario> GetUsuarioAsync(string id);
         Task<bool> DeleteUsuarioAsync(string id);
         Task<EditUsuarioResponse> UpdateUsuarioAsync(string id, Usuario usuario);

@@ -33,16 +33,29 @@ namespace ARB.Services
             this.mapper = _mapper;
         }
 
-        public async Task<IEnumerable<Usuario>> GetUsuariosAsync()
+
+        public async Task<IEnumerable<UserRespons>> GetUsuariosAsync()
         {
             var usuarioEntities = await ARBRepository.GetAllUsuarios();
             var res = mapper.Map<IEnumerable<Usuario>>(usuarioEntities);
+            List<UserRespons> response = new List<UserRespons>();
+            var a = new UserRespons();
             for (int i = 0; i < res.Count(); i++)
             {
-                res.ElementAt(i).cantPedidos = res.ElementAt(i).Pedidos.Count();
-                res.ElementAt(i).cantDestinatarios = res.ElementAt(i).Destinatarios.Count();
+                a= new UserRespons();
+                a.Id = res.ElementAt(i).Id;
+                a.Name = res.ElementAt(i).Name;
+                a.Email = res.ElementAt(i).Email;
+                a.LastName = res.ElementAt(i).LastName;
+                a.Ubication = res.ElementAt(i).Ubication;
+                a.latitude = res.ElementAt(i).latitude;
+                a.longitude = res.ElementAt(i).longitude;
+                a.Phone = res.ElementAt(i).Phone;
+                a.cantPedidos = res.ElementAt(i).Pedidos.Count();
+                a.cantDestinatarios = res.ElementAt(i).Destinatarios.Count();
+                response.Add(a);
             }
-            return res;
+            return response;
         }
         public async Task<bool> DeleteUsuarioAsync(string id)
         {

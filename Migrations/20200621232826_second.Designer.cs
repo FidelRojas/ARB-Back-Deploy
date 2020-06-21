@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ARB.Migrations
 {
     [DbContext(typeof(ARBDbContext))]
-    [Migration("20200621174723_initial")]
-    partial class initial
+    [Migration("20200621232826_second")]
+    partial class second
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
