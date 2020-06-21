@@ -47,7 +47,7 @@ namespace ARB
             //SQL
             services.AddEntityFrameworkSqlServer();
             services.AddDbContext<ARBDbContext>(options =>
-                options.UseSqlServer(
+                options.UseMySql(
                     Configuration.GetConnectionString("ARBApiDatabase")
                     )
             );
