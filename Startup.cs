@@ -47,7 +47,7 @@ namespace ARB
             //SQL
             services.AddEntityFrameworkSqlServer();
             services.AddDbContext<ARBDbContext>(options =>
-                options.UseMySql(
+                options.UseSqlServer(
                     Configuration.GetConnectionString("ARBApiDatabase")
                     )
             );
@@ -66,9 +66,11 @@ namespace ARB
             
           services.AddIdentity<UsuarioEntity, IdentityRole>(options =>
             {
-                options.Password.RequireDigit = true;
+                options.Password.RequireDigit = false;
                 options.Password.RequiredLength = 6;
-                //options.Password.RequireLowercase = true;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase= false;
             }).AddEntityFrameworkStores<ARBDbContext>()
             .AddDefaultTokenProviders();
 

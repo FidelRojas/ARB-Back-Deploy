@@ -78,7 +78,7 @@ namespace ARB.Controllers
         //        return StatusCode(StatusCodes.Status500InternalServerError, "something bad happend");
         //    }
         //}
-        [Authorize(Roles = "Usuario ")]
+        [Authorize(Roles = "Usuario")]
         [HttpPut("{id}")]
         public async Task<ActionResult<Destinatario>> UpdateDestinatario(string userId, int id, [FromBody]Destinatario destinatario)
         {

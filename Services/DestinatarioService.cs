@@ -119,6 +119,7 @@ namespace ARB.Services
             var destinatarioEntity = destinatariosEntity.ToList().Find(d => d.Id == solicitud.DestinatarioId);
             destinatarioEntity.latitude = solicitud.latitude;
             destinatarioEntity.longitude = solicitud.longitude;
+            destinatarioEntity.Pedidos = null;
             var destinatario = mapper.Map<Destinatario>(destinatarioEntity);
             return await UpdateDestinatarioAsync(destinatario.UsuarioId, destinatario.Id, destinatario);
         }
