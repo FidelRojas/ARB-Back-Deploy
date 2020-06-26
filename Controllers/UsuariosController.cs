@@ -101,7 +101,7 @@ namespace ARB.Controllers
 
 
 
-
+        [Authorize(Roles = "Repartidor")]
         [HttpPost("Repartidor")]
         public async Task<IActionResult> RegisterRepartidorAsync([FromBody] RegisterViewModel model)
         {
@@ -143,7 +143,7 @@ namespace ARB.Controllers
 
 
         }
-        //[Authorize(Roles = "Usuario")]
+        [Authorize(Roles = "Repartidor")]
         [HttpPost("Role")]
         public async Task<IActionResult> CreateRolAsync([FromBody] CreateRoleViewModel model)
         {

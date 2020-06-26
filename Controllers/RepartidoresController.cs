@@ -133,6 +133,7 @@ namespace ARB.Controllers
         //}
 
         [HttpPost]
+        [Authorize(Roles = "Repartidor")]
         public async Task<ActionResult<Repartidor>> PostRepartidor([FromBody] Repartidor repartidor)
         {
             if (!ModelState.IsValid)
